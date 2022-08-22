@@ -1,0 +1,67 @@
+﻿<Window x:Class="AuberChatting.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AuberChatting"
+        xmlns:viewModel="clr-namespace:AuberChatting.MVVM.ViewModels"
+        mc:Ignorable="d"
+        Title="StartWindow" Height="450" Width="400"
+        WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Background="Transparent" AllowsTransparency="True">
+    
+    <Grid>
+        <Border CornerRadius="10"
+                MouseDown="Border_MouseDown">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <TextBlock Text="AuberChatting"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               FontSize="30"/>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBox Height="50" Width="350"
+                                 Text="{Binding Nickname}"/>
+                        <PasswordBox Height="50" Width="350"
+                                 Margin="0,14,0,0"
+                                 Name="P_Box1"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <Button Width="160" Height="55"
+                                Margin="0,0,15,0"
+                                Content="LogIn"
+                                Command="{Binding LoginCommand}"
+                                CommandParameter="{Binding ElementName=P_Box1}"/>
+                        
+                        <Button Width="160" Height="55"
+                                Content="Registrate"
+                                Command="{Binding RegistrateCommand}"
+                                CommandParameter="{Binding ElementName=P_Box1}"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="MediumPurple" Offset="0.0"/>
+                    <GradientStop Color="Purple" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+    </Grid>
+    
+</Window>

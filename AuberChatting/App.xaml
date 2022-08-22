@@ -1,0 +1,44 @@
+﻿<Application x:Class="AuberChatting.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AuberChatting"
+             xmlns:viewModel="clr-namespace:AuberChatting.MVVM.ViewModels"
+             xmlns:view="clr-namespace:AuberChatting.MVVM.Views">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Themes/ReceivedFriendshipRequestCard.xaml"/>
+                <ResourceDictionary Source="./Themes/SentFriendshipRequestCard.xaml"/>
+                <ResourceDictionary Source="./Themes/FriendCard.xaml"/>
+                <ResourceDictionary Source="./Themes/CreateChatFriendCard.xaml"/>
+                <ResourceDictionary Source="./Themes/ChatCard.xaml"/>
+                <ResourceDictionary Source="./Themes/ChatInventionCard.xaml"/>
+                <ResourceDictionary Source="./Themes/ChatMemberCard.xaml"/>
+                <ResourceDictionary Source="./Themes/MessageCard.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:FriendshipViewModel}">
+                <view:FriendshipView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ChattingViewModel}">
+                <view:ChattingView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModel:FindFriendViewModel}">
+                <view:FindFriendView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:PendingFriendshipViewModel}">
+                <view:PendingFriendshipView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:AllFriendsViewModel}">
+                <view:AllFriendsView/>
+            </DataTemplate>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

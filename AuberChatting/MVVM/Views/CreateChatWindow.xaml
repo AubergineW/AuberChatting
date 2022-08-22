@@ -1,0 +1,46 @@
+﻿<Window x:Class="AuberChatting.MVVM.Views.CreateChatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AuberChatting.MVVM.Views"
+        mc:Ignorable="d"
+        Title="Create Chat" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <TextBlock Text="Name: "/>
+                <TextBox Width="300"
+                         Background="LightGray"
+                         Text="{Binding ChatName}"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <ListView Background="Transparent"
+                  BorderBrush="Transparent"
+                  ItemContainerStyle="{DynamicResource CreateChatFriendCard}"
+                  ItemsSource="{Binding AllFriends}"
+                  SelectionMode="Multiple"
+                  Name="SelectedFriendsListView"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Button Content="Create"
+                    CommandParameter="{Binding ElementName=SelectedFriendsListView}"
+                    Command="{Binding CreateChatCommand}"
+                    HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Height="60" Width="160" Margin="0,0,20,0"/>
+        </Grid>
+    </Grid>
+</Window>

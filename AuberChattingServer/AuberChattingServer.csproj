@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+	  <GenerateRuntimeConfigurationsFiles>True</GenerateRuntimeConfigurationsFiles>
+    <UserSecretsId>c3ed70fd-ca7c-4651-850f-6e6cd375b371</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.27" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AuberChattingDomain\AuberChattingDomain.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<DotNetCliToolReference Include="DotnetPublishSsh" Version="0.1.0" />
+	</ItemGroup>
+
+</Project>
