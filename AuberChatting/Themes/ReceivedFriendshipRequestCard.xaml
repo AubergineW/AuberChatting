@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:AuberChatting.Themes">
+
+    <Style TargetType="ListViewItem" x:Key="ReceivedFriendshipRequestCard">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Grid>
+                        <TextBlock Text="{Binding Nickname}"/>
+
+                        <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                            <Button Content="A"
+                                    Command="{Binding AcceptFriendshipRequest}"/>
+                            <Button Content="D"
+                                    Command="{Binding DeclineFriendshipRequest}"/>
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
